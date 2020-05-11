@@ -2,7 +2,7 @@
 A platform that lets people sell home made food locally
 
 ## Background and Overview
-People who like to cook and want people to try their food in the area are the reason we create the website
+Sunday Market is a web app that allows people to sell their home made food in their local communities. 
 
 
 ## Functionality and MVP
