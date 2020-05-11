@@ -24,10 +24,10 @@ People who like to cook and want people to try their food in the area are the re
 
 ## Work Breakdown
 Day 1
-React skeleton - Joseph
-Users backend - Javier
-Website mockup - Eric
-AWS and Heroku - Alvin
+* React skeleton - Joseph
+* Users backend - Javier
+* Website mockup - Eric
+* AWS and Heroku - Alvin
 
 Day 2
 Item
