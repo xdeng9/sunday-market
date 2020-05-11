@@ -36,5 +36,5 @@ Day 3
 Comment
 
 
-## Group Members and Work Breakdown
+## Group Members
 Alvin Zhao, Eric Hsieh, Javier Castro, Joseph Deng
