@@ -1,92 +1,50 @@
+.NavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
 #logo{
   background-image: url("../../image/sunday-logo.png"); 
-  width: 130px;
-  height: 100px;
+  width: 165px;
+  height: 165px;
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
   top: -10px;
+  color: white;
+  
 }
 
-.login-form-container {
-    display: flex;
-    align-items: center;
-    margin-top: 100px;
-    background: white;
-    flex-direction: column;
-    padding: 4%;
-}
-
-.login-form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-}
-
-.login-input {
-    border-radius: 4px;
-    box-shadow: none;
-    padding: 9px 16px;
-    border: 1px solid #E1E3DF;
-    height: 30px;
-}
-
-.login-form-box {
-    outline: 0;
-    padding: 20px;
-    width: 358.462px;
-    border-radius: 4px;
-}
-
-.login-form > label {
-    margin-bottom: 6px;
-    font-size: 14px;
-    text-align: left;
-    font-weight: 560;
-}
-
-.login-header h1 {
-    margin-top: 0;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.register-header h1 {
-    margin-top: 0;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.register-header p {
-    font-size: 14px;
-    font-weight: 300;
-}
-
-.text-orange {
-    padding-left: 5px;
-    color: rgb(238, 255, 0);
-}
-
-
-
-
-.clicky {
-    /** Offset the Position **/
-    position: relative;
-    top: 0;
-    margin-top: 0;
-    margin-bottom: 10px;
-    display: block;
-    background: black;
-    color: #eee;
-    padding: 12px 28px;
-    border: 0;
-    cursor: pointer;
-    font-size: 14px;
-    height: 48px;
-    opacity: 0.9;
+#login{
+    color: black;
+    border: 1px solid gray;
     border-radius: 5px;
-    font-weight: bold;
+    padding: 3px 5px;
+     box-shadow: 2px 4px rgba(196, 177, 13, 0.911);
+     font-size: 22px;
+     border-bottom-style: none;
 
+}
+
+#signup{
+    margin-left: 15px;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 3px 5px;
+    box-shadow: 2px 4px rgba(196, 177, 13, 0.911);
+    font-size: 22px;
+    border-bottom-style: none;
+}
+
+.login-signup{
+    margin-left: 0 10px;
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: right;
+    
+   
 }
