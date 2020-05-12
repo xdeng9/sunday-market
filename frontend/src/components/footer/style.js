@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FooterBox = styled.div`
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     margin-bottom: 0px;
     margin-top: 400px;
     justify-content: center;
@@ -10,20 +11,29 @@ export const FooterBox = styled.div`
     height: 200px;           
     background-color:rgb(241, 241, 241);
     border-top: 1px solid #ccc;
-    color: gray;
-`
-export const FooterNav =styled.div`
-    display: block;
     justify-content: center;
-    margin-top: 50px;
+    color: #ccc;
+    font-size: 16px;
+
 `
-export const Icon = styled.a`
-    font-size: 28px;
-    margin: 0 70px;
+export const Story = styled.div`
+ 
 `
 
 export const CopyRight = styled.div`
-    display:block;
-    font-size: 18px;
+    justify-content: center;
+    color: #ccc;
     margin-top: 30px; 
+`
+export const A = styled.a`
+    color: #ccc;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none; 
+    cursor: pointer;
+    &: hover{
+        color:gray;
+        font-weight: 600;
+    }
+
 `
