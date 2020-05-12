@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import './login.css'
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push('/tweets');
+      this.props.history.push('/login');
     }
 
     this.setState({ errors: nextProps.errors })
@@ -54,8 +54,8 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="login-form-container">
+        <form onSubmit={this.handleSubmit} className="login-form-box">
           <div>
             <br />
             <input type="text"
@@ -70,7 +70,7 @@ class LoginForm extends React.Component {
               placeholder="Password"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <button className="clicky">Login</button>
             {this.renderErrors()}
           </div>
         </form>

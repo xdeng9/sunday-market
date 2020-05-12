@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import './signup.css'
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
   render(){
     return(
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="login-form">
             <br />
             <label htmlFor="email">Email address</label>
@@ -57,33 +57,33 @@ class SignupForm extends React.Component {
             <br />
             <label htmlFor="phoneNumber">Phone Number</label>
             <input type="phoneNumber"
-              value={this.state.password}
+              value={this.state.phoneNumber}
               onChange={this.update('phoneNumber')}
               placeholder="Phonenumber"
             />
             <br />
             <label htmlFor="firstName">First Name</label>
             <input type="firstName"
-              value={this.state.password}
+              value={this.state.firstName}
               onChange={this.update('firstName')}
               placeholder="Firstname"
             />
             <br />
             <label htmlFor="lastName">Last Name</label>
             <input type="lastName"
-              value={this.state.password}
+              value={this.state.lastName}
               onChange={this.update('lastName')}
               placeholder="Lastname"
             />
             <br />
             <label htmlFor="zipCode">Zip Code</label>
             <input type="zipCode"
-              value={this.state.password}
+              value={this.state.zipCode}
               onChange={this.update('zipCode')}
               placeholder="Zipcode"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <button className="clicky">Sign up</button>
           </div>
         </form>
       </div>
