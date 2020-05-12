@@ -14,12 +14,12 @@ const UserSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    validate: {
-      validator: function (v) {
-        return /\d{3}-\d{3}-\d{4}/.test(v);
-      },
-      message: (props) => `${props.value} is not a valid phone number!`,
-    },
+    // validate: {
+    //   validator: function (v) {
+    //     return /\d{3}-\d{3}-\d{4}/.test(v);
+    //   },
+    //   message: (props) => `${props.value} is not a valid phone number!`,
+    // },
     required: [true, "Phone number required"],
   },
   firstName: {
@@ -32,10 +32,11 @@ const UserSchema = new Schema({
   },
   zipCode: {
     type: Number,
-    min: 000000,
-    max: 999999,
+    min: 00000,
+    max: 99999,
     required: [true, "Zip code required"],
   },
 });
+
 
 module.exports = User = mongoose.model("User", UserSchema);
