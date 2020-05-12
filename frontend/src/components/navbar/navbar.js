@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './navbar.css'
 
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -16,15 +17,15 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div>
+        <div className="login-signup">
           <button onClick={this.logoutUser}>Logout</button>
         </div>
       );
     } else {
       return (
-        <div>
-          <Link to={'/signup'} className="clicky">Signup</Link>
-          <Link to={'/login'} className="clicky">Login</Link>
+        <div className="login-signup">
+          <Link to={'/signup'} id="signup" >Signup</Link>
+          <Link to={'/login'} id="login">Login</Link>
         </div>
       );
     }
@@ -32,10 +33,10 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <li className="logo-nav">
-          <a href="/" id="logo">s</a>
-        </li>
+      <div >
+
+        <a href="/" id="logo">.</a>
+       { this.getLinks()}
         
       </div>
     );
