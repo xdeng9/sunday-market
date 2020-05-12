@@ -11,20 +11,25 @@ module.exports = function validateRegisterInput(data) {
   data.lastName = validText(data.lastName) ? data.lastName : "";
 
 
-  if (Validator.isEmpty(data.email)) {
-    errors.email = "Email field is required";
-  }
-
+  
   if (!Validator.isEmail(data.email)) {
     errors.email = "Email is invalid";
   }
 
+  if (Validator.isEmpty(data.email)) {
+    errors.email = "Email field is required";
+  }
+  
+  if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
+    errors.password = "Password must be at least 6 characters";
+  }
+  
   if (Validator.isEmpty(data.password)) {
     errors.password = "Password field is required";
   }
 
-  if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
-    errors.password = "Password must be at least 6 characters";
+  if (!Validator.isMobilePhone(data.phoneNumber, 'en-US')) {
+    errors.phoneNumber = "Phone number is not valid";
   }
 
   if (Validator.isEmpty(data.phoneNumber)) {
@@ -37,6 +42,10 @@ module.exports = function validateRegisterInput(data) {
 
   if (Validator.isEmpty(data.lastName)) {
     errors.lastName = "Last name field is required";
+  }
+
+  if (!Validator.isPostalCode(data.zipCode, 'US')) {
+    errors.zipCode = "Zip code is not valid";
   }
 
   if (Validator.isEmpty(data.zipCode)) {

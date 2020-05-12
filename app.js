@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
+const listings = require("./routes/api/listings");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require('path');
@@ -27,6 +28,7 @@ mongoose
 
 
   app.use("/api/users", users);
+  app.use("/api/listings", listings);
 
 
 const port = process.env.PORT || 5000;
