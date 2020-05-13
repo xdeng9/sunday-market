@@ -1,0 +1,20 @@
+.listing-grid {
+    width: 30%;
+    margin: 1.66%;
+    float: left;
+}
+
+.listing-index-container {
+    margin: 0 auto;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.listing-header {
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
