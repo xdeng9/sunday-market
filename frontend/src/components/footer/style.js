@@ -14,7 +14,7 @@ export const FooterBox = styled.div`
     justify-content: center;
     color: #ccc;
     font-size: 16px;
-
+    padding: 0 20px;
 `
 export const Story = styled.div`
  

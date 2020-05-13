@@ -1,9 +1,13 @@
 import React from 'react';
 import NavBarContainer from './navbar/navbar_container';
+import './app.css';
+import Footer from './footer/Footer';
+
 const App = () => {
     return (
-        <div>
+        <div className="app-container">
            <NavBarContainer/>
+            <Footer />
         </div>
     )
 }
