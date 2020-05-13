@@ -1,3 +1,9 @@
 .app-container {
     
 }
+
+.nav-divider {
+    border-bottom: 2px solid lightgray;
+    margin-top: 8px;
+    width: 100%;
+}
