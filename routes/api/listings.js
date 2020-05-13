@@ -2,10 +2,30 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
+const aws = require("aws-sdk");
+const multerS3 = require("multer-s3");
+const multer = require("multer");
+const path = require("path");
+const url = require("url");
+const keys = require('../../config/keys')
+
+
+// const s3 = new aws.S3({
+//   accessKeyId: keys.accessKeyId,
+//   secretAccessKey: keys.secretAccessKey,
+//   Bucket: "sundaymarket-aa",
+// });
+
+const s3 = new aws.S3({
+  accessKeyId: "AKIATN66B3KOH7P3KXFY",
+  secretAccessKey: "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",
+  Bucket: "sundaymarket-aa",
+});
 
 const Listing = require("../../models/Listing");
 const validateListingInput = require("../../validation/listings");
 
+//listings index route
 router.get("/", (req, res) => {
   Listing.find()
     .sort({ date: -1 })
@@ -13,6 +33,8 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(404).json({ notlistingsfound: "No listings found" }));
 });
 
+
+//listings index per user route
 router.get("/user/:user_id", (req, res) => {
   Listing.find({ user: req.params.user_id })
     .then((listings) => res.json(listings))
@@ -21,6 +43,7 @@ router.get("/user/:user_id", (req, res) => {
     );
 });
 
+//listing show route
 router.get("/:id", (req, res) => {
   Listing.findById(req.params.id)
     .then((listing) => res.json(listing))
@@ -29,11 +52,28 @@ router.get("/:id", (req, res) => {
     );
 });
 
+//listing delete route
+router.delete("/:id", (req, res) => {
+  Listing.findById(req.params.id)
+    .then((listing) => listing.remove())
+    .catch((err) => res.json(err));
+});
+
+
+//listing update route
+router.patch("/:id", (req, res) => {
+  Listing.findById(req.params.id)
+    .then((listing) => listing.updateOne(req.body))
+    .catch((err) => res.json(err));
+});
+
+
+//create listing route
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateListingtInput(req.body);
+    const { errors, isValid } = validateListingInput(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
@@ -49,6 +89,65 @@ router.post(
     newListing.save().then((listing) => res.json(listing));
   }
 );
+
+const profileImgUpload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: "sundaymarket-aa",
+    acl: "public-read",
+    key: function (req, file, cb) {
+      cb(
+        null,
+        path.basename(file.originalname, path.extname(file.originalname)) +
+          "-" +
+          Date.now() +
+          path.extname(file.originalname)
+      );
+    },
+  }),
+  limits: { fileSize: 3000000 }, // In bytes: 3000000 bytes = 3 MB
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+}).single("listingImage");
+
+
+function checkFileType( file, cb ){
+  const filetypes = /jpeg|jpg|png|gif/;
+  const extname = filetypes.test( path.extname( file.originalname ).toLowerCase());
+  const mimetype = filetypes.test( file.mimetype );
+  if( mimetype && extname ){
+    return cb( null, true );
+  } else {
+    cb( 'Error: Images Only!' );
+  }
+}
+
+
+router.post("/:id/listing-img-upload", (req, res) => {
+  profileImgUpload(req, res, (error) => {
+    if (error) {
+      console.log("errors", error);
+      res.json({ error: error });
+    } else {
+      // If File not found
+      if (req.file === undefined) {
+        console.log("Error: No File Selected!");
+        res.json("Error: No File Selected");
+      } else {
+        debugger
+        // If Success
+        const imageName = req.file.key;
+        const imageLocation = req.file.location;
+        // Save the file name into database into profile model
+        res.json({
+          image: imageName,
+          location: imageLocation,
+        });
+      }
+    }
+  });
+});
 
 router.get("/test", (req, res) => res.json({ msg: "This is the listings route" }));
 
