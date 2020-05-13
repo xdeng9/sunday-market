@@ -22,16 +22,17 @@
 .login-form-container {
     display: block;
     align-items: center;
-    margin-top: 100px;
-    background: red;
+    margin-top: 100%;
+    background: rgb(238, 99, 7);
     flex-direction: column;
-    padding: 30px;
+    padding: 50%;
 }
 
 .login-form {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: fit-content;
 
 }
 
@@ -40,17 +41,17 @@
     box-shadow: none;
     padding: 9px 16px;
     border: 1px solid #E1E3DF;
-    height: 30px;
+    height: 60px;
 }
 
 .login-form-box {
     outline: 0;
     padding: 20px;
-    width: 358.462px;
+    width: 700px;
     border-radius: 4px;
 }
 
-.login-form > label {
+/* .login-form > label {
     margin-bottom: 6px;
     font-size: 14px;
     text-align: left;
@@ -77,4 +78,4 @@
 .text-orange {
     padding-left: 5px;
     color: rgb(238, 255, 0);
-}
+} */
