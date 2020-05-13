@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -28,6 +29,17 @@ class LoginForm extends React.Component {
       [field]: e.currentTarget.value
     });
   }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const demo = Object.assign({}, {
+      email: 'demo@user.com',
+      password: '123456',
+    
+    })
+    this.props.signup(demo, this.props.history)
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -58,12 +70,14 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div>
             <br />
+            <label htmlFor="email">Email address</label>
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}
               placeholder="Email"
             />
             <br />
+            <label htmlFor="password">Password</label>
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
@@ -71,6 +85,7 @@ class LoginForm extends React.Component {
             />
             <br />
             <button className="clicky">Login</button>
+            <button onClick={this.handleDemo} className="clicky" >Demo login</button>
             {this.renderErrors()}
           </div>
         </form>
