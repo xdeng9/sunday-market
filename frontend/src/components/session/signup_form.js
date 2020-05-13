@@ -13,12 +13,27 @@ class SignupForm extends React.Component {
       zipCode: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  handleDemo(e){
+    e.preventDefault();
+    const demo = Object.assign({}, {
+      email: 'demo@user.com',
+      password: '123456',
+      phoneNumber: '12345678',
+      firstName: 'Demo',
+      lastName: 'User',
+      zipCode: '94101'
+    })
+    this.props.signup(demo,this.props.history)
   }
 
   handleSubmit(e){
@@ -35,11 +50,23 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history);
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>
+            {this.state.errors[error]}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render(){
     return(
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <div className="login-form">
+      <div className="sign-form-container">
+        <form onSubmit={this.handleSubmit} className="sign-form-box">
+          <div className="sign-form">
             <br />
             <label htmlFor="email">Email address</label>
             <input type="text"
@@ -83,7 +110,9 @@ class SignupForm extends React.Component {
               placeholder="Zipcode"
             />
             <br />
-            <button className="clicky">Sign up</button>
+            <button className="clicky2">Sign up</button>
+            <button onClick={this.handleDemo} className="clicky2" >Demo login</button>
+              {this.renderErrors()} 
           </div>
         </form>
       </div>
