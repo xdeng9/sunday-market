@@ -1,20 +1,24 @@
-.NavBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-
 #logo{
   background-image: url("../../image/sunday-logo.png"); 
-  width: 165px;
-  height: 165px;
+  width: 108px;
+  height: 108px;
   background-size: contain;
   background-repeat: no-repeat;
-  position: absolute;
-  top: -10px;
   color: white;
-  
+}
+
+.logout-btn {
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 3px 5px;
+    box-shadow: 2px 4px rgba(196, 177, 13, 0.911);
+    font-size: 18px;
+    border-bottom-style: none;
+}
+
+.hover {
+    cursor: pointer;
 }
 
 #login{
@@ -22,10 +26,9 @@
     border: 1px solid gray;
     border-radius: 5px;
     padding: 3px 5px;
-     box-shadow: 2px 4px rgba(196, 177, 13, 0.911);
-     font-size: 22px;
-     border-bottom-style: none;
-
+    box-shadow: 2px 4px rgba(196, 177, 13, 0.911);
+    font-size: 18px;
+    border-bottom-style: none;
 }
 
 #signup{
@@ -35,7 +38,7 @@
     border-radius: 5px;
     padding: 3px 5px;
     box-shadow: 2px 4px rgba(196, 177, 13, 0.911);
-    font-size: 22px;
+    font-size: 18px;
     border-bottom-style: none;
 }
 
@@ -44,7 +47,30 @@
     position: relative;
     display: flex;
     flex-direction: row-reverse;
-    align-items: right;
-    
-   
+    align-items: right;  
+}
+
+.search-field {
+    padding-left: 18px;
+    height: 44px;
+    width: 100%;
+    border-top-left-radius: 96px;
+    border-bottom-left-radius: 96px;
+    border-top-right-radius: 96px;
+    border-bottom-right-radius: 96px;
+    outline: none;
+    border: 2px solid lightgray;
+    font-size: 16px;
+    background: rgba(34, 34, 34, 0.07);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-bar-container {
+    width: 70%;
+    margin-right: 20px;
 }

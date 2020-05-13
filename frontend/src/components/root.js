@@ -5,7 +5,6 @@ import { AuthRoute } from '../util/route_util';
 import App from './app';
 import LoginContainer from './session/login_form_container';
 import SignupContainer from './session/signup_form_container';
-import Footer from './footer/Footer'
 
 const Root = ({ store }) => (
     <Provider store={store}>
@@ -15,7 +14,6 @@ const Root = ({ store }) => (
                 <AuthRoute exact path="/signup" component={SignupContainer}/>
                 <Route path='/' component={App} />
             </Switch>
-        <Footer/>
         </HashRouter>
     </Provider>
 );
