@@ -22,6 +22,10 @@ const ListingSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  photoUrl: {
+    type: String,
+    default: '',
+  },
   date: {
     type: Date,
     default: Date.now,
