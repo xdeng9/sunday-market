@@ -46,6 +46,9 @@ class NavBar extends React.Component {
             placeholder="Search"
           ></input>
         </div>
+        <div className="post-btn">
+          <Link to={'/profile/'} id="post" className="hover">Post</Link>
+        </div>
         <div className="nav-btns-container">
           { this.getLinks()}
         </div>
