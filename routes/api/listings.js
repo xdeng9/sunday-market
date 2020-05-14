@@ -10,6 +10,7 @@ const url = require("url");
 const keys = require('../../config/keys')
 
 const Listing = require("../../models/Listing");
+const User = require("../../models/User");
 const validateListingInput = require("../../validation/listings");
 
 // const s3 = new aws.S3({
@@ -79,7 +80,11 @@ router.get("/user/:user_id", (req, res) => {
 //listing show route
 router.get("/:id", (req, res) => {
   Listing.findById(req.params.id)
-    .then((listing) => res.json(listing))
+    .then((listing) => {
+      user = User.findById(listing.user).then((user) =>
+        res.json({ listing: listing, user: user })
+      );
+    })
     .catch((err) =>
       res.status(404).json({ nolistingfound: "No listing found with that ID" })
     );
