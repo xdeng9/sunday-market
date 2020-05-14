@@ -19,8 +19,8 @@ const validateListingInput = require("../../validation/listings");
 // });
 
 const s3 = new aws.S3({
-  accessKeyId: "AKIATN66B3KOH7P3KXFY",
-  secretAccessKey: "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",
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretAccessKey,
   Bucket: "sundaymarketbucket",
 });
 
