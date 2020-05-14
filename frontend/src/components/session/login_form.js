@@ -71,6 +71,11 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="login-form">
             <div className="register-header">
+              <a href="/" >
+                <div id="logo2">
+
+                </div>
+              </a>
               <h1 >Login</h1>
             </div>
             <br />

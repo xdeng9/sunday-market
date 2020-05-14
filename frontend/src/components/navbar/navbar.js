@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './navbar.css'
 
 
@@ -31,6 +31,10 @@ class NavBar extends React.Component {
     }
   }
 
+  handlePost() {
+    if (this.props.user.id === undefined) this.props.history.push('/login');
+  }
+
   render() {
     return (
       <div className="navbar-container">
@@ -46,8 +50,8 @@ class NavBar extends React.Component {
             placeholder="Search"
           ></input>
         </div>
-        <div className="post-btn">
-          <Link to={'/profile/'} id="post" className="hover">Post</Link>
+        <div className="post-btn" onClick={() => this.handlePost()}>
+          <Link to={`/user/${this.props.user.id}`} id="post" className="hover">Post</Link>
         </div>
         <div className="nav-btns-container">
           { this.getLinks()}
@@ -58,4 +62,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

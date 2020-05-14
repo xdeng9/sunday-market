@@ -77,6 +77,11 @@ class SignupForm extends React.Component {
           <div className="sign-form">
             <div className="register-header">
 
+              <a href="/" >
+                <div id="logo2">
+
+                </div>
+              </a>
               <h1 >Create Account</h1>
             </div>
             <br />
