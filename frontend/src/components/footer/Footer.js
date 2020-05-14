@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FooterBox, CopyRight,A,Story} from './style'
+import {FooterBox,CopyRight,A,Story} from './style'
 class Footer extends Component {
     render() {
         return (
