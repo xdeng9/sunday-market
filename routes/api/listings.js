@@ -93,14 +93,6 @@ router.delete("/:id", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// router.delete("/:id", (req, res) => {
-//   Listing.findByIdAndDelete(req.params.id, function (err) {
-//     if (err) console.log(err);
-//     console.log("Successfully deleted listing");
-//     res.json({});
-//   });
-// });
-
 
 //listing update route
 router.patch("/:id", (req, res) => {
