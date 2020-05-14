@@ -35,7 +35,6 @@ export const A = styled.a`
     cursor: pointer;
     &: hover{
         color:gray;
-        font-weight: 600;
     }
 
 `

@@ -1,5 +1,6 @@
 import React from 'react';
 import './listing.css';
+import { Link } from 'react-router-dom';
 
 class ListingIndex extends React.Component {
 
@@ -14,15 +15,20 @@ class ListingIndex extends React.Component {
                 <div className="listing-header">
                     <p>Popular right now</p>
                 </div>
-                <ul>
-                    {listings.map(listing => {
+                <div className="listing-grid-container">
+                    {listings.map((listing, idx) => {
                         return (
-                            <li key={listing.id}>
-
-                            </li>
+                            <Link key={idx} className="listing-link" to={`/listing/${listing._id}`}>
+                                <figure key={idx} className="listing-item-container">
+                                    <img src={listing.photoUrl} className="listing-thumbnail" alt="" />
+                                    <figcaption>
+                                        {listing.title}
+                                    </figcaption>
+                                </figure>
+                            </Link>
                         )
                     })}
-                </ul>
+                </div>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './login.css'
+
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
   }
 
@@ -35,9 +36,9 @@ class LoginForm extends React.Component {
     const demo = Object.assign({}, {
       email: 'demo@user.com',
       password: '123456',
-    
+
     })
-    this.props.signup(demo, this.props.history)
+    this.props.login(demo, this.props.history)
   }
 
 
@@ -68,12 +69,16 @@ class LoginForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <div>
+          <div className="login-form">
+            <div className="register-header">
+              <h1 >Login</h1>
+            </div>
             <br />
-            <label htmlFor="email">Email address</label>
+            <label htmlFor="email">Email</label>
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}
+              className="login-input"
               placeholder="Email"
             />
             <br />
@@ -81,6 +86,7 @@ class LoginForm extends React.Component {
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
+              className="login-input"
               placeholder="Password"
             />
             <br />

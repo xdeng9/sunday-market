@@ -3,15 +3,15 @@
     position: relative;
     top: 0;
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     display: block;
     background: rgb(10, 10, 0);
     color: #eee;
-    padding: 12px 24px;
+    /* padding: 12px 24px; */
     border: 0;
     cursor: pointer;
-    font-size: 14px;
-    height: 24px;
+    font-size: 20px;
+    height: 40px;
     opacity: 0.9;
     border-radius: 5px;
     font-weight: bold;
@@ -20,20 +20,19 @@
 
 
 .login-form-container {
-    display: block;
-    align-items: center;
-    margin-top: 100%;
-    background: rgb(238, 99, 7);
+    display: flex;
+    background: rgb(255, 255, 255);
     flex-direction: column;
-    padding: 50%;
+    align-items: center;
+   margin-top: 120px;
 }
 
 .login-form {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: fit-content;
-
+    /* width: fit-content; */
+    height: fit-content;
 }
 
 .login-input {
@@ -41,19 +40,22 @@
     box-shadow: none;
     padding: 9px 16px;
     border: 1px solid #E1E3DF;
-    height: 60px;
+    height: 40px;
+    font-size: 18px;
 }
 
 .login-form-box {
-    outline: 0;
-    padding: 20px;
-    width: 700px;
+   outline: 0;
+    padding: 40px;
+    width: 500px;
     border-radius: 4px;
+    border: rgb(255, 255, 255) 1px solid;
+   box-shadow: 2px 4px 10px rgb(0, 0, 0);
 }
 
 .login-form > label {
     margin-bottom: 6px;
-    font-size: 14px;
+    font-size: 20px;
     text-align: left;
     font-weight: 560;
 }
@@ -66,8 +68,9 @@
 
 .register-header h1 {
     margin-top: 0;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 30px;
+    /* font-weight: bold; */
+    font-weight: 560;
 }
 
 .register-header p {
@@ -79,3 +82,4 @@
     padding-left: 5px;
     color: rgb(238, 255, 0);
 }
+

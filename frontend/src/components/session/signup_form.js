@@ -13,9 +13,17 @@ class SignupForm extends React.Component {
       zipCode: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+
     this.handleDemo = this.handleDemo.bind(this);
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.signedIn === true) {
+      this.props.history.push('/login');
+    }
+
+    this.setState({ errors: nextProps.errors })
+  }
+
 
   update(field) {
     return e => this.setState({
@@ -23,20 +31,20 @@ class SignupForm extends React.Component {
     });
   }
 
-  handleDemo(e){
+  handleDemo(e) {
     e.preventDefault();
     const demo = Object.assign({}, {
       email: 'demo@user.com',
       password: '123456',
-      phoneNumber: '12345678',
+      phoneNumber: '5302204949',
       firstName: 'Demo',
       lastName: 'User',
       zipCode: '94101'
     })
-    this.props.signup(demo,this.props.history)
+    this.props.login(demo, this.props.history)
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
     let user = {
       email: this.state.email,
@@ -53,25 +61,30 @@ class SignupForm extends React.Component {
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
     );
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="sign-form-container">
         <form onSubmit={this.handleSubmit} className="sign-form-box">
           <div className="sign-form">
+            <div className="register-header">
+
+              <h1 >Create Account</h1>
+            </div>
             <br />
-            <label htmlFor="email">Email address</label>
+            <label htmlFor="email">Email</label>
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}
+              className="sign-input"
               placeholder="Email"
             />
             <br />
@@ -79,40 +92,45 @@ class SignupForm extends React.Component {
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
+              className="sign-input"
               placeholder="Password"
             />
             <br />
-            <label htmlFor="phoneNumber">Phone Number</label>
+            <label htmlFor="phoneNumber">Phone number</label>
             <input type="phoneNumber"
               value={this.state.phoneNumber}
               onChange={this.update('phoneNumber')}
-              placeholder="Phonenumber"
+              className="sign-input"
+              placeholder="Phone number"
             />
             <br />
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName">First name</label>
             <input type="firstName"
               value={this.state.firstName}
               onChange={this.update('firstName')}
-              placeholder="Firstname"
+              className="sign-input"
+              placeholder="First name"
             />
             <br />
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName">Last name</label>
             <input type="lastName"
               value={this.state.lastName}
               onChange={this.update('lastName')}
-              placeholder="Lastname"
+              className="sign-input"
+              placeholder="Last name"
             />
             <br />
-            <label htmlFor="zipCode">Zip Code</label>
+            <label htmlFor="zipCode">Zip code</label>
             <input type="zipCode"
               value={this.state.zipCode}
               onChange={this.update('zipCode')}
+              className="sign-input"
               placeholder="Zipcode"
             />
             <br />
             <button className="clicky2">Sign up</button>
             <button onClick={this.handleDemo} className="clicky2" >Demo login</button>
-              {this.renderErrors()} 
+            {this.renderErrors()}
           </div>
         </form>
       </div>
