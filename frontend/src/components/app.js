@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import NavBarContainer from './navbar/navbar_container';
 import './app.css';
 import Footer from './footer/Footer';
+import Main from './profile/Main';
+import { ProtectedRoute  } from '../util/route_util';
 import ListIndexContainer from './listing/listing_index_container';
 
 const App = () => {
@@ -12,6 +14,7 @@ const App = () => {
            <div className="nav-divider"></div>
            <Switch>
                 <Route exact path="/" component={ListIndexContainer}/>
+                <Route path={`/user/:id`} component={Main} />
            </Switch>
            <Footer />
         </div>
