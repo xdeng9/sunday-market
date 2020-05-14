@@ -86,20 +86,27 @@ router.get("/:id", (req, res) => {
 });
 
 //listing delete route
+
 router.delete("/:id", (req, res) => {
-  Listing.findById(req.params.id)
-    .then((listing) => listing.remove())
+  Listing.findByIdAndDelete(req.params.id)
+    .then((listing) => res.json(listing))
     .catch((err) => res.json(err));
 });
 
 
 //listing update route
 router.patch("/:id", (req, res) => {
-  Listing.findById(req.params.id)
-    .then((listing) => listing.updateOne(req.body))
-    .catch((err) => res.json(err));
+  Listing.findByIdAndUpdate(req.params.id, { $set: req.body }, {new: true}, function (
+    err,
+    result
+  ) {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(result);
+    }
+  });
 });
-
 
 // create listing route
 // router.post(
