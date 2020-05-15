@@ -28,7 +28,13 @@ class ListingShow extends React.Component {
                         </div>
                         <div className="breakline"></div>
                         <CommentContainer />
-                        <div className="listing-show-description">
+
+
+                    </div>
+                    <div className="listing-show-right-box2">
+                        <iframe className="iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25232.70193328276!2d-122.44717164177793!3d37.76454079709958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1589503135730!5m2!1sen!2sus"
+                        ></iframe>
+                        <div className="listing-show-description2">
                             <h1 className="about-2"> Description</h1>
                             <p>
                                 {this.state.listing.description}
@@ -37,23 +43,23 @@ class ListingShow extends React.Component {
 
                         <div className="user-info">
                             <div className="name-box">
-                                <i class="fa fa-address-card"></i>
+                                <i className="fa fa-address-card"></i>
                                 <div className="name">{this.state.user.firstName}  {this.state.user.lastName}</div>
                             </div>
                             <div className="phone-box">
-                                <i class="fa fa-mobile-phone"></i>
+                                <i className="fa fa-mobile-phone"></i>
                                 <a className="phoneNumber"> {this.state.user.phoneNumber}</a>
                             </div>
                             <div className="zipcode-box">
-                                <i class="fa fa-map"></i>
+                                <i className="fa fa-map"></i>
                                 <div className="zipcode">{this.state.user.zipCode}</div>
                             </div>
+                            <div className="email-box">
+                                <i className="fa fa-send-o"></i>
+                                <div className="email"> {this.state.user.email} </div>
+
+                            </div>
                         </div>
-                        <div className="breakline"></div>
-                    </div>
-                    <div className="listing-show-right-box2">
-                        <iframe className="iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25232.70193328276!2d-122.44717164177793!3d37.76454079709958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1589503135730!5m2!1sen!2sus"
-                        ></iframe>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 .comment-list-container {
     list-style: none;
+    margin-left: -42px;
 }
 
 .comments-container {
@@ -14,4 +15,8 @@
     height: 24px;
     margin-right: 20px;
     font-size: 16px;
+}
+
+.comment-item{
+    margin: 20px auto;
 }

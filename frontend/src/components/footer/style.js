@@ -15,7 +15,7 @@ export const FooterBox = styled.div`
     color: #ccc;
     font-size: 16px;
     padding: 0 20px;
-    margin: 0px auto;
+   
 `
 export const Story = styled.div`
  
