@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import NavBarContainer from './navbar/navbar_container';
 import './app.css';
 import Footer from './footer/Footer';
-// import Main from './profile/Main';
 import ProItemContainer from './profile/proitem_container';
 import { ProtectedRoute  } from '../util/route_util';
 import ListIndexContainer from './listing/listing_index_container';
@@ -17,7 +16,6 @@ const App = () => {
            <Switch>
                 <Route exact path="/" component={ListIndexContainer}/>
                 <Route exact path="/listing/:listingId" component={ListShowContainer}/>
-                {/* <ProtectedRoute path={`/user/:id`} component={Main} /> */}
                 <ProtectedRoute path={`/user/:userId`} component={ProItemContainer} />
            </Switch>
            <Footer />
