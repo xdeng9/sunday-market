@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
     );
 });
 
-//comments index per listing route
+//comments per listing route
 router.get("/listing/:listing_id", (req, res) => {
   Comment.find({ listing: req.params.listing_id })
     .then((comments) => res.json(comments))
@@ -66,7 +66,7 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateListingInput(req.body);
+    const { errors, isValid } = validateCommentInput(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
@@ -74,11 +74,11 @@ router.post(
 
     const newComment = new Comment({
     user: req.user.id,
-    listing: req.listing.id,
+    listing: req.body.listingId,
     content: req.body.content,
     });
 
-    newComment.save().then((comment) => res.json(comment));
+    newComment.save().then((comment) => res.json(comment), err => res.json(err));
 }
      
 );

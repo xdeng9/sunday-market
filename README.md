@@ -30,10 +30,16 @@ Day 1
 * AWS and Heroku - Alvin
 
 Day 2
-Item
+User auth
 
 Day 3
-Comment
+Listings
+
+Day 4
+Listings
+
+Day 5
+Comments
 
 
 ## Group Members
