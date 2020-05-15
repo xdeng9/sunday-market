@@ -4,8 +4,10 @@ import NavBarContainer from './navbar/navbar_container';
 import './app.css';
 import Footer from './footer/Footer';
 import Main from './profile/Main';
+import ProItemContainer from './profile/proitem_container';
 import { ProtectedRoute  } from '../util/route_util';
 import ListIndexContainer from './listing/listing_index_container';
+import ListShowContainer from './listing/listing_show_container';
 
 const App = () => {
     return (
@@ -14,7 +16,9 @@ const App = () => {
            <div className="nav-divider"></div>
            <Switch>
                 <Route exact path="/" component={ListIndexContainer}/>
-                <Route path={`/user/:id`} component={Main} />
+                <Route exact path="/listing/:listingId" component={ListShowContainer}/>
+                {/* <ProtectedRoute path={`/user/:id`} component={Main} /> */}
+                <ProtectedRoute path={`/user/:userId`} component={ProItemContainer} />
            </Switch>
            <Footer />
         </div>
