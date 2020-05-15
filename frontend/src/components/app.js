@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import NavBarContainer from './navbar/navbar_container';
 import './app.css';
 import Footer from './footer/Footer';
-import Main from './profile/Main';
+// import Main from './profile/Main';
 import ProItemContainer from './profile/proitem_container';
 import { ProtectedRoute  } from '../util/route_util';
 import ListIndexContainer from './listing/listing_index_container';
