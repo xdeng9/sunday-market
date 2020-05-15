@@ -31,8 +31,9 @@ class NavBar extends React.Component {
     }
   }
 
-  handlePost() {
-    if (this.props.user.id === undefined) this.props.history.push('/login');
+  getLinkTo() {
+    if (!this.props.user || this.props.user.id === undefined) return '/login';
+    return `/user/${this.props.user.id}`
   }
 
   render() {
@@ -50,8 +51,8 @@ class NavBar extends React.Component {
             placeholder="Search"
           ></input>
         </div>
-        <div className="post-btn" onClick={() => this.handlePost()}>
-          <Link to={`/user/${this.props.user.id}`} id="post" className="hover">Post</Link>
+        <div className="post-btn">
+          <Link to={this.getLinkTo()} id="post" className="hover">Post</Link>
         </div>
         <div className="nav-btns-container">
           { this.getLinks()}

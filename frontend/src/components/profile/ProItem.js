@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './proItem.css'
 class ProItem extends React.Component {
     constructor(props) {
         super(props);
@@ -8,14 +9,15 @@ class ProItem extends React.Component {
             photoUrl: [],
             title: "",
             description: "",
-            price: ""
+            price: "",
+            userListings: []
         };
+        this.deleteItem = this.deleteItem.bind(this)
 
     }
     componentDidMount() {
-        
-        this.props.getUserListings(this.props.match.params.userId);
-
+        this.props.getUserListings(this.props.match.params.userId)
+            .then(userListings => this.setState({userListings: userListings.listings}));
     }
 
     handleEdit(event) {
@@ -29,11 +31,14 @@ class ProItem extends React.Component {
         this.props.updateListing(edit, this.props.history)
     }
 
-    handleDelete(listingId) {
-        return event => {
-            this.props.deleteListing(listingId)
-        }
-
+    deleteItem(e, listingId) {
+        e.preventDefault();
+        let newUserListings = this.state.userListings.filter(
+            listing => listing._id !== listingId
+        );
+        this.props.deleteListing(listingId).then(() => {
+            this.setState({ userListings: newUserListings })
+        })
     }
 
     update(field) {
@@ -44,31 +49,43 @@ class ProItem extends React.Component {
 
 
     render() {
-        let { listings } = this.props;
-        if (listings === undefined) {
-            return "a"
+        console.log(this.state.userListings)
+        let listings = this.state.userListings;
+        if (listings.length === 0) {
+            return null;
         }
         return (
-            <div>
-                <div className="descrip">
-                    {listings.map((listing, idx) => {
-                        return (
-                            <Link key={idx} className="listing-link" to={`/listing/${listing._id}`}>
-                                <figure key={idx} className="listing-item-container">
-                                    <img src={listing.photoUrl} className="food-pic" alt="" />
-                                    <h1>
-                                        Description:
-                                    </h1>
-                                    <p>
-                                        {listing.description}
-                                    </p>
-                                </figure>
-                            </Link>
-                        )
-                    })
-                    }
-                </div>
+            <div className="box1">
 
+                {listings.map((listing, idx) => {
+                    return (
+
+                        <Link key={idx} className="link" to={`/listing/${listing._id}`}>
+                            <div key={idx} className="food-pic-con" >
+                                <img src={listing.photoUrl} className="food-pic" alt="" />
+                            </div>
+                            <div className="info">
+                                <div className="title">
+                                    {listing.title}
+                                </div>
+
+                                <div className="description">
+                                    Description:
+                                            </div>
+                                <div className="about">
+                                    {listing.description}
+
+                                </div>
+                                <div className="price">
+                                    $ {listing.price}
+                                </div>
+                            </div>
+
+                            <button className="delete-btn" onClick={(e) => this.deleteItem(e, listing._id)}>Delete</button>
+                        </Link>
+                    )
+                })
+                }
             </div>
         )
     }

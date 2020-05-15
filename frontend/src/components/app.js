@@ -18,7 +18,7 @@ const App = () => {
                 <Route exact path="/" component={ListIndexContainer}/>
                 <Route exact path="/listing/:listingId" component={ListShowContainer}/>
                 {/* <ProtectedRoute path={`/user/:id`} component={Main} /> */}
-                <ProtectedRoute path={`/user/:id`} component={ProItemContainer} />
+                <ProtectedRoute path={`/user/:userId`} component={ProItemContainer} />
            </Switch>
            <Footer />
         </div>

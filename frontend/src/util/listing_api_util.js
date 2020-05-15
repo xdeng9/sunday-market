@@ -13,13 +13,13 @@ export const fetchUserPosts = userId => {
 }
 
 export const createPost = data => {
-    return axios.post('/api/lists/', data);
+    return axios.post('/api/listings/', data);
 }
 
 export const deletePost = postId => {
-    return axios.delete(`/api/lists/${postId}`);
+    return axios.delete(`/api/listings/${postId}`);
 }
 
 export const updatePost = (postId, data) => {
-    return axios.patch(`/api/lists/${postId}`, data);
+    return axios.patch(`/api/listings/${postId}`, data);
 }

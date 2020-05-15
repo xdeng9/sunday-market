@@ -103,6 +103,13 @@ figcaption {
   width: 60%;
 }
 
+.listing-show-right-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .listing-show-image {
   width: 700px;
   height: 550px;
@@ -113,4 +120,9 @@ figcaption {
 .listing-show-image img {
   object-fit: cover;
   overflow: hidden;
+}
+
+.iframe {
+  width: 600px;
+  height: 450px;
 }
