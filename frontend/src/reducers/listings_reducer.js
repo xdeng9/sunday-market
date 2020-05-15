@@ -10,7 +10,7 @@ const ListingsReducer = (state = [], action) => {
         case RECEIVE_LISTINGS:
             return action.listings;
         case REMOVE_LISTING:
-            delete newState[action.listingId];
+            newState = newState.filter(listing => listing._id !== action.listingId);
             return newState;
         default:
             return state;
