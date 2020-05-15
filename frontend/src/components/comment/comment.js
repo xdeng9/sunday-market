@@ -6,7 +6,7 @@ class Comment extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { body: ''};
+        this.state = { body: '' };
         this.handleChange = this.handleChange.bind(this);
         this.handleComment = this.handleComment.bind(this);
     }
@@ -39,8 +39,8 @@ class Comment extends React.Component {
                     {comments.length} Comments
                 </h1>
                 <form className="comment-form" onSubmit={this.handleComment}>
-                    <input 
-                        className="comment-field" 
+                    <input
+                        className="comment-field"
                         id="comment-input"
                         onChange={this.handleChange}
                         type="text"
@@ -53,6 +53,7 @@ class Comment extends React.Component {
                         return (
                             <li key={comment._id} className="comment-item">
                                 {comment.content}
+                                <div className="breakline"></div>
                             </li>
                         )
                     })}

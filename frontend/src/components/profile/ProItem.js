@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './proItem.css';
-import axios from "axios";
 
 class ProItem extends React.Component {
   constructor(props) {
