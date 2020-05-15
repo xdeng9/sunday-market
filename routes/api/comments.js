@@ -66,11 +66,11 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateCommentInput(req.body);
-
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
+    // const { errors, isValid } = validateCommentInput(req.body);
+    
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
 
     const newComment = new Comment({
     user: req.user.id,

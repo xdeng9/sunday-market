@@ -6,12 +6,11 @@ const ListingsReducer = (state = [], action) => {
     let newState = Object.assign([], state);
     switch (action.type) {
         case RECEIVE_LISTING:
-            newState[action.listing.id] = action.listing;
-            return newState;
+            return [...state, action.listing];
         case RECEIVE_LISTINGS:
             return action.listings;
         case REMOVE_LISTING:
-            delete newState[action.listingId];
+            newState = newState.filter(listing => listing._id !== action.listingId);
             return newState;
         default:
             return state;

@@ -1,4 +1,6 @@
 import React from 'react';
+import './listing_show.css'
+import CommentContainer from '../comment/comment_container';
 
 class ListingShow extends React.Component {
 
@@ -17,22 +19,41 @@ class ListingShow extends React.Component {
         return (
             <div className="listing-show-container">
                 <div className="listing-show-content">
-                    <div className="listing-show-left-box">
+                    <div className="listing-show-left-box2">
                         <h2 className="listing-show-header">
                             {this.state.listing.title}
                         </h2>
-                        <div className="listing-show-image">
+                        <div className="listing-show-image2">
                             <img src={this.state.listing.photoUrl} alt="" />
                         </div>
+                        <div className="breakline"></div>
+                        <CommentContainer />
                         <div className="listing-show-description">
+                            <h1 className="about-2"> Description</h1>
                             <p>
                                 {this.state.listing.description}
                             </p>
                         </div>
+
+                        <div className="user-info">
+                            <div className="name-box">
+                                <i class="fa fa-address-card"></i>
+                                <div className="name">{this.state.user.firstName}  {this.state.user.lastName}</div>
+                            </div>
+                            <div className="phone-box">
+                                <i class="fa fa-mobile-phone"></i>
+                                <a className="phoneNumber"> {this.state.user.phoneNumber}</a>
+                            </div>
+                            <div className="zipcode-box">
+                                <i class="fa fa-map"></i>
+                                <div className="zipcode">{this.state.user.zipCode}</div>
+                            </div>
+                        </div>
+                        <div className="breakline"></div>
                     </div>
-                    <div className="listing-show-right-box">
-                        <iframe className="iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25232.70193328276!2d-122.44717164177793!3d37.76454079709958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1589503135730!5m2!1sen!2sus" 
-                         ></iframe>
+                    <div className="listing-show-right-box2">
+                        <iframe className="iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25232.70193328276!2d-122.44717164177793!3d37.76454079709958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1589503135730!5m2!1sen!2sus"
+                        ></iframe>
                     </div>
                 </div>
             </div>
