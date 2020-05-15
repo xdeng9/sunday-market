@@ -4,8 +4,8 @@ const validText = require("./valid-text");
 module.exports = function validateListingInput(data) {
   let errors = {};
 
-  console.log('HEREEEE')
-  console.log(data)
+  // console.log('HEREEEE')
+  // console.log(data)
 
   data.text = validText(data.title) ? data.title : "";
   data.text = validText(data.description) ? data.description : "";
