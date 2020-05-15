@@ -70,3 +70,50 @@
 .delete-btn:hover {
   cursor: pointer;
 }
+
+.create-form {
+  background-color: #EFEFEF;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 400px;
+  margin: 0 auto;
+  border: solid 1px #eeeeef;
+  border-radius: 5px;
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.74); 
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.create-form label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.create-form input {
+  margin-left: 10px;
+  width: 300px;
+  border: 1px solid #D3D3D3;
+  border-radius: 2px;
+}
+
+.create-form textarea {
+  margin-left: 10px;
+  width: 300px;
+  resize: none;
+  border: 1px solid #D3D3D3;
+  border-radius: 2px;
+  padding: 1px;
+
+}
+
+.create-image input {
+  border: none;
+}
+
+.create-submit {
+  width: 100px;
+  margin: 0 auto;
+}

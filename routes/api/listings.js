@@ -65,9 +65,12 @@ router.get("/", (req, res) => {
 //listings index per user route
 router.get("/user/:user_id", (req, res) => {
   Listing.find({ user: req.params.user_id })
+    .sort({ date: -1 })
     .then((listings) => res.json(listings))
     .catch((err) =>
-      res.status(404).json({ notlistingsfound: "No listings found from that user" })
+      res
+        .status(404)
+        .json({ notlistingsfound: "No listings found from that user" })
     );
 });
 
