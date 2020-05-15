@@ -36,4 +36,4 @@ export const updateListing = (listingId, data) => dispatch => updatePost(listing
     .then(listing => dispatch(receiveListing(listing.data)));
 
 export const deleteListing = listingId => dispatch => deletePost(listingId)
-    .then(listing => dispatch(removeListing(listing.data.id)));
+    .then(listing => dispatch(removeListing(listing.data._id)));

@@ -8,6 +8,11 @@ class ListingIndex extends React.Component {
         this.props.getListings();
     }
 
+    renderPrice(price) {
+        if (parseInt(price) === 0) return <span className="free-food">FREE food</span>;
+        return '$' + price;
+    }
+
     render() {
         let { listings } = this.props;
         return (
@@ -23,6 +28,8 @@ class ListingIndex extends React.Component {
                                     <img src={listing.photoUrl} className="listing-thumbnail" alt="" />
                                     <figcaption>
                                         {listing.title}
+                                        <br />
+                                        {this.renderPrice(listing.price)}
                                     </figcaption>
                                 </figure>
                             </Link>

@@ -13,12 +13,6 @@ const Listing = require("../../models/Listing");
 const User = require("../../models/User");
 const validateListingInput = require("../../validation/listings");
 
-// const s3 = new aws.S3({
-//   accessKeyId: keys.accessKeyId,
-//   secretAccessKey: keys.secretAccessKey,
-//   Bucket: "sundaymarketbucket",
-// });
-
 const s3 = new aws.S3({
   accessKeyId: keys.accessKeyId,
   secretAccessKey: keys.secretAccessKey,

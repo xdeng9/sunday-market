@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './navbar.css'
 
 
@@ -31,6 +31,11 @@ class NavBar extends React.Component {
     }
   }
 
+  getLinkTo() {
+    if (!this.props.user || this.props.user.id === undefined) return '/login';
+    return `/user/${this.props.user.id}`
+  }
+
   render() {
     return (
       <div className="navbar-container">
@@ -47,7 +52,7 @@ class NavBar extends React.Component {
           ></input>
         </div>
         <div className="post-btn">
-          <Link to={'/profile/'} id="post" className="hover">Post</Link>
+          <Link to={this.getLinkTo()} id="post" className="hover">Post</Link>
         </div>
         <div className="nav-btns-container">
           { this.getLinks()}
@@ -58,4 +63,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);
