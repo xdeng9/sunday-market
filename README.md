@@ -1,11 +1,8 @@
 [See it live](https://sunday-market.herokuapp.com/#/)
 
-# Sunday Market
 
-A platform that lets people buy and sell home made food locally
-
-## Background and Overview
-Sunday Market is a web app that allows people to sell their home made food in their local communities. 
+## Overview
+Sunday Market is a web app that lets people buy and sell homemade food in their local communities. 
 
 
 ## Functionality and MVP
