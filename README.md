@@ -18,7 +18,7 @@ Sunday Market is a web app that lets people buy and sell homemade food in their 
 - [ ] Rating system. 
 
 
-## Technologies and Technical Challenges
+## Technologies
 * Backend - node.js, MongoDB, Express.
 * Frontend - react, redux, Javascript, CSS, HTML.
 
