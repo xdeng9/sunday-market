@@ -7,6 +7,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   logoutUser(e) {
@@ -36,6 +37,13 @@ class NavBar extends React.Component {
     return `/user/${this.props.user.id}`
   }
 
+  handleSearch() {
+    return (event) => {
+      console.log(event.target.value)
+      this.props.searchListing(event.target.value)
+    };
+  }
+
   render() {
     return (
       <div className="navbar-container">
@@ -49,6 +57,7 @@ class NavBar extends React.Component {
           <input
             className="search-field"
             placeholder="Search"
+            onChange={this.handleSearch()}
           ></input>
         </div>
         <div className="post-btn">

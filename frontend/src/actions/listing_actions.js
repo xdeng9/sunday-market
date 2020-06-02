@@ -4,6 +4,7 @@ from '../util/listing_api_util';
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
 export const RECEIVE_LISTINGS = 'RECEIVE_LISTINGS';
 export const REMOVE_LISTING = 'REMOVE_LISTING';
+export const SEARCH_LISTING = 'SEARCH_LISTING';
 
 const receiveListing = listing => ({
     type: RECEIVE_LISTING,
@@ -19,6 +20,8 @@ const removeListing = listingId => ({
     type: REMOVE_LISTING,
     listingId
 })
+
+
 
 export const getListings = () => dispatch => fetchPosts()
     .then(listings => dispatch(receiveListings(listings.data)));
@@ -37,3 +40,6 @@ export const updateListing = (listingId, data) => dispatch => updatePost(listing
 
 export const deleteListing = listingId => dispatch => deletePost(listingId)
     .then(listing => dispatch(removeListing(listing.data._id)));
+
+export const searchListing = value => dispatch => fetchPosts()
+    .then(listings => dispatch({ type: SEARCH_LISTING, listings: listings.data, value }))
