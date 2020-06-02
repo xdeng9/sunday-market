@@ -79,7 +79,7 @@
 .listing-show-left-box2{
     display: block;
     margin-top: 18px;
-    width: 960px;
+    max-width: 700px;
     padding-left: 16px;
   }
 

@@ -40,14 +40,15 @@
 }
 
 .box1{
-     width: 900px;
-    border-top: solid 1px #eeeeef;
+    width: 900px;
+    /* border-top: solid 1px #eeeeef; */
     min-height: 600px;
     display: flex;
-    justify-content: space-between;
-    /* align-items: unset; */
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    padding: 100px 400px;
+    padding-top: 30px;
+    margin: 0 auto;
 }
 
 .price{
