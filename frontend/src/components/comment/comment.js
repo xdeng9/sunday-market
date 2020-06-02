@@ -9,6 +9,7 @@ class Comment extends React.Component {
         this.state = { body: '' };
         this.handleChange = this.handleChange.bind(this);
         this.handleComment = this.handleComment.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
@@ -19,9 +20,14 @@ class Comment extends React.Component {
         this.setState({ body: e.currentTarget.value });
     }
 
+    handleDelete(e, id) {
+        e.preventDefault();
+        this.props.deleteComment(id);
+    }
+
     handleComment(e) {
         e.preventDefault();
-        if (this.props.user.id === undefined) return;
+        if (this.props.user.id === undefined) this.props.history.push('/login');
         let commentField = document.getElementById("comment-input");
         commentField.value = '';
         this.setState({ body: '' })
@@ -52,7 +58,10 @@ class Comment extends React.Component {
                     {comments.map(comment => {
                         return (
                             <li key={comment._id} className="comment-item">
-                                {comment.content}
+                                <div className="comment-item-inline">
+                                    <p className="comment-content">{comment.content}</p>
+                                    <button className="comment-del-btn" onClick={(e) => this.handleDelete(e, comment._id)}>Delete</button>
+                                </div>
                                 <div className="breakline"></div>
                             </li>
                         )

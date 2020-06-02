@@ -1,6 +1,6 @@
 .breakline{
-      border-bottom: solid 1px #e6e6e6;
-    width: 605px;
+    border-bottom: solid 1px #e6e6e6;
+    width: 90%;
     margin-top: 24px;
 }
 
@@ -80,10 +80,17 @@
     display: block;
     margin-top: 18px;
     width: 960px;
+    padding-left: 16px;
   }
+
+  #show-image {
+    min-width: 650px;
+    max-width: 650px;
+  }
+  
 .listing-show-image2{
     object-fit: contain;
-    width: 700px;
+    width: 90%;
     height: 450px;
     display: flex;
 }

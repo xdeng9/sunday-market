@@ -24,7 +24,7 @@ class ListingShow extends React.Component {
                             {this.state.listing.title}
                         </h2>
                         <div className="listing-show-image2">
-                            <img src={this.state.listing.photoUrl} alt="" />
+                            <img id="show-image" src={this.state.listing.photoUrl} alt="" />
                         </div>
                         <div className="breakline"></div>
                         <CommentContainer />
