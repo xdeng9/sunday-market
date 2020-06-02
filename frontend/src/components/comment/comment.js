@@ -32,6 +32,7 @@ class Comment extends React.Component {
     handleComment(e) {
         e.preventDefault();
         if (this.props.user.id === undefined) this.props.history.push('/login');
+        if (this.state.body.trim().length === 0) return;
         let commentField = document.getElementById("comment-input");
         commentField.value = '';
         this.setState({ body: '' })
