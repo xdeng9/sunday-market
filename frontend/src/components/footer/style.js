@@ -12,7 +12,6 @@ export const FooterBox = styled.div`
     background-color:rgb(241, 241, 241);
     border-top: 1px solid #ccc;
     justify-content: center;
-    color: #ccc;
     font-size: 16px;
     padding: 0 20px;
    
@@ -23,11 +22,11 @@ export const Story = styled.div`
 
 export const CopyRight = styled.div`
     justify-content: center;
-    color: #ccc;
+
     margin-top: 30px; 
 `
 export const A = styled.a`
-    color: #ccc;
+
     font-size: 20px;
     font-weight: 500;
     text-decoration: none; 
