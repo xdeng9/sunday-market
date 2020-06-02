@@ -22,6 +22,10 @@ class Comment extends React.Component {
 
     handleDelete(e, id) {
         e.preventDefault();
+        if (this.props.user.id === undefined) {
+            this.props.history.push('/login');
+            return;
+        } 
         this.props.deleteComment(id);
     }
 
