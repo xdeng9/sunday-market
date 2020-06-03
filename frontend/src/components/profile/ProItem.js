@@ -12,6 +12,7 @@ class ProItem extends React.Component {
       description: "",
       price: "",
       userListings: [],
+      errors: []
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.singleFileChangedHandler = this.singleFileChangedHandler.bind(this);
@@ -36,8 +37,15 @@ class ProItem extends React.Component {
   singleFileUploadHandler = (e) => {
     e.preventDefault();
     const data = new FormData();
-    // If file selected
-    if (this.state.selectedFile) {
+    this.state.errors = [];
+    // Hacky validation
+    if (!this.state.selectedFile || !this.state.title.trim() || !this.state.description.trim() || !this.state.price.trim() ) {
+      if (!this.state.selectedFile) this.state.errors.push('Please select an image');
+      if (!this.state.title.trim()) this.state.errors.push('Please enter a title');
+      if (!this.state.description.trim()) this.state.errors.push('Please enter a description');
+      if (!this.state.price.trim()) this.state.errors.push('Please enter a price');
+      this.forceUpdate();
+    } else {
       data.append("title", this.state.title);
       data.append("description", this.state.description);
       data.append("price", this.state.price);
@@ -56,6 +64,7 @@ class ProItem extends React.Component {
             price: "",
             selectedFile: null,
           });
+          document.getElementById("file-input").value = "";
       })
     }
   };
@@ -87,6 +96,18 @@ class ProItem extends React.Component {
     };
   }
 
+  renderErrors() {
+    return (
+      <ul className="create-errors">
+        {(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     console.log(this.state.userListings);
     let listings = this.state.userListings;
@@ -115,16 +136,17 @@ class ProItem extends React.Component {
           <label className="create-price">
             <span>Price</span>
             <input
-              type="text"
+              type="number"
               onChange={this.update("price")}
               value={this.state.price}
             ></input>
           </label>
           <label className="create-image">
             <span>Image</span>
-            <input type="file" onChange={this.singleFileChangedHandler} />
+            <input id="file-input" type="file" onChange={this.singleFileChangedHandler} />
           </label>
           <button className="create-submit" onClick={this.singleFileUploadHandler}>Create</button>
+          {this.renderErrors()}
         </form>
 
         {listings.map((listing, idx) => {
