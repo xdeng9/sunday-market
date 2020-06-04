@@ -30,7 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore({});
     }
 
-    window.getState = store.getState;
-    window.axios = axios;
     ReactDOM.render(<Root store={store}/>, document.getElementById("root"));
 })
