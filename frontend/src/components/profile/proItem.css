@@ -126,4 +126,5 @@ input::-webkit-inner-spin-button {
 
 .create-errors {
   color: red;
+  font-weight: 300;
 }

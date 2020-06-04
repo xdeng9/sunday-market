@@ -19,14 +19,15 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="login-signup">
-          <button className="logout-btn hover" onClick={this.logoutUser}>Logout</button>
+          <Link to={this.getLinkTo()} id="post" className="hover">Account</Link>
+          <button id="logout" className="hover" onClick={this.logoutUser}>Log Out</button>
         </div>
       );
     } else {
       return (
         <div className="login-signup">
           <Link to={'/signup'} id="signup" className="hover">Register</Link>
-          <Link to={'/login'} id="login" className="hover">Login</Link>
+          <Link to={'/login'} id="login" className="hover">Log In</Link>
         </div>
       );
     }
@@ -59,9 +60,6 @@ class NavBar extends React.Component {
             placeholder="Search"
             onChange={this.handleSearch()}
           ></input>
-        </div>
-        <div className="post-btn">
-          <Link to={this.getLinkTo()} id="post" className="hover">Post</Link>
         </div>
         <div className="nav-btns-container">
           { this.getLinks()}

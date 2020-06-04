@@ -39,7 +39,7 @@ class ProItem extends React.Component {
     const data = new FormData();
     this.state.errors = [];
     // Hacky validation
-    if (!this.state.selectedFile || !this.state.title.trim() || !this.state.description.trim() || !this.state.price.trim() ) {
+    if (!this.state.selectedFile || !this.state.title.trim() || !this.state.description.trim() || !this.state.price.trim()) {
       if (!this.state.selectedFile) this.state.errors.push('Please select an image');
       if (!this.state.title.trim()) this.state.errors.push('Please enter a title');
       if (!this.state.description.trim()) this.state.errors.push('Please enter a description');
@@ -54,6 +54,7 @@ class ProItem extends React.Component {
         this.state.selectedFile,
         this.state.selectedFile.name
       );
+
 
       this.props.createListing(data)
       .then(res => {
@@ -116,6 +117,9 @@ class ProItem extends React.Component {
     }
     return (
       <div className="box1">
+
+        <h2>Add New Product</h2>
+
         <form className="create-form">
           <label className="create-title">
             <span>Title</span>
@@ -149,6 +153,8 @@ class ProItem extends React.Component {
           {this.renderErrors()}
         </form>
 
+
+        <h2>Your Products</h2>
         {listings.map((listing, idx) => {
           return (
             <Link key={idx} className="link" to={`/listing/${listing._id}`}>

@@ -7,18 +7,12 @@
   color: white;
 }
 
-.logout-btn {
-    color: black;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 3px 5px;
-    box-shadow: 2px 4px rgba(196, 177, 13, 0.911);
-    font-size: 18px;
-    border-bottom-style: none;
-}
 
 .hover {
     cursor: pointer;
+    width: 80px;
+    padding: 2px;
+    text-align: center;
 }
 
 #post {
@@ -43,8 +37,20 @@
     text-decoration: none;
 }
 
+#logout {
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 3px 5px;
+    box-shadow: 2px 4px rgba(196, 177, 13, 0.911);
+    font-size: 18px;
+    border-bottom-style: none;
+    text-decoration: none;
+    width: 92.22px;
+    background-color: white;
+}
+
 #signup{
-    margin-left: 15px;
     color: black;
     border: 1px solid gray;
     border-radius: 5px;
@@ -56,10 +62,12 @@
 }
 
 .login-signup{
-    margin-left: 0 10px;
+    margin-left: 10px;
     position: relative;
+    width: 210px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: right;  
 }
 
