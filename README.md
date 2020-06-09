@@ -5,7 +5,7 @@
 Sunday Market is a web app that allows people to buy and sell homemade food in their local communities. Users
 also have the option to list items at no cost so people can try their food for free!
 
-<img src="https://github.com/xdeng9/sunday-market/blob/master/frontend/src/image/main_page.png?raw=true" width="800" height="500" title="Railsbook">
+<img src="https://github.com/xdeng9/sunday-market/blob/master/frontend/src/image/sunday-logo.png?raw=true" width="400" height="400" title="Sunday Market">
 
 ## Features
 
@@ -14,6 +14,12 @@ also have the option to list items at no cost so people can try their food for f
 Users can search for their favorite foods and leave comments!
 
 ![Alt Text](https://github.com/xdeng9/sunday-market/blob/master/frontend/src/image/search.gif?raw=true)
+
+### Account Management
+
+User can list new products available for sale.
+
+![Alt Text](https://github.com/xdeng9/sunday-market/blob/master/frontend/src/image/account.gif?raw=true)
 
 ## Functionality and MVP
 - [ ] User auth. Login and sign up.
