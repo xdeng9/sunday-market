@@ -2,8 +2,18 @@
 
 
 ## Overview
-Sunday Market is a web app that lets people buy and sell homemade food in their local communities. 
+Sunday Market is a web app that allows people to buy and sell homemade food in their local communities. Users
+also have the option to list items at no cost so people can try their food for free!
 
+<img src="https://github.com/xdeng9/sunday-market/blob/master/frontend/src/image/main_page.png?raw=true" width="800" height="500" title="Railsbook">
+
+## Features
+
+### Search Items
+
+Users can search for their favorite foods and leave comments!
+
+![Alt Text](https://github.com/xdeng9/sunday-market/blob/master/frontend/src/image/search.gif?raw=true)
 
 ## Functionality and MVP
 - [ ] User auth. Login and sign up.
@@ -19,27 +29,30 @@ Sunday Market is a web app that lets people buy and sell homemade food in their 
 
 
 ## Technologies
-* Backend - node.js, MongoDB, Express.
-* Frontend - react, redux, JavaScript, CSS, HTML.
+* Backend - Node.js, MongoDB, Express.
+* Frontend - React, Redux, JavaScript, CSS, HTML.
 
 ## Work Breakdown
+* Frontend, React - Joseph
+* Backend, AWS - Javier
+* Styling, CSS - Eric
+* Deployment, Heroku - Alvin
+
 Day 1
-* React skeleton - Joseph
-* Users backend - Javier
-* Website mockup - Eric
-* AWS and Heroku - Alvin
+User Auth
 
 Day 2
-User auth
+Listings
 
 Day 3
-Listings
+Account
 
 Day 4
-Listings
+Comments
 
 Day 5
-Comments
+Search Functionality
+
 
 
 ## Group Members
