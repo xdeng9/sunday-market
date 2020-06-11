@@ -86,10 +86,10 @@
   #show-image {
     min-width: 650px;
     max-width: 650px;
+    object-fit: cover;
   }
   
 .listing-show-image2{
-    object-fit: contain;
     width: 90%;
     height: 450px;
     display: flex;

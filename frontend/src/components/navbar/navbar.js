@@ -54,13 +54,14 @@ class NavBar extends React.Component {
             </div>
           </a>
         </div>
+        {this.props.location.pathname === "/" ? 
         <div className="search-bar-container">
           <input
             className="search-field"
             placeholder="Search"
             onChange={this.handleSearch()}
           ></input>
-        </div>
+        </div> : "" }
         <div className="nav-btns-container">
           { this.getLinks()}
         </div>
