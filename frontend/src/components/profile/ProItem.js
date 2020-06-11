@@ -124,6 +124,7 @@ class ProItem extends React.Component {
           <label className="create-title">
             <span>Title</span>
             <input
+              className="create-input"
               type="text"
               onChange={this.update("title")}
               value={this.state.title}
@@ -132,6 +133,7 @@ class ProItem extends React.Component {
           <label className="create-description">
             <span>Description</span>
             <textarea
+              className="create-input"
               type="text"
               onChange={this.update("description")}
               value={this.state.description}
@@ -139,19 +141,23 @@ class ProItem extends React.Component {
           </label>
           <label className="create-price">
             <span>Price</span>
-            <input
-              type="number"
-              onChange={this.update("price")}
-              value={this.state.price}
-            ></input>
+            <div>
+              $<input
+                className="create-input"
+                type="number" maxlength="4"
+                onChange={this.update("price")}
+                value={this.state.price}
+              ></input>
+            </div>
           </label>
           <label className="create-image">
             <span>Image</span>
-            <input id="file-input" type="file" onChange={this.singleFileChangedHandler} />
+            <input className="create-input" id="file-input" type="file" onChange={this.singleFileChangedHandler} />
           </label>
           <button className="create-submit" onClick={this.singleFileUploadHandler}>Create</button>
           {this.renderErrors()}
         </form>
+
 
 
         <h2>Your Products</h2>
