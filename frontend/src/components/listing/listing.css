@@ -15,7 +15,6 @@
 
 .listing-grid-container {
    display: inline-block;
-   /* flex: wrap; */
    justify-content:space-around;
   text-align: justify;
 }
@@ -63,7 +62,7 @@ figcaption {
     text-transform: uppercase;
     width: 250px;
     justify-content: space-evenly;
-
+  font-family: arial, sans-serif;
 }
 
 .listing-thumbnail{
@@ -73,7 +72,7 @@ figcaption {
   display: block;
   background: #ccc;
   transition: transform .2s ease-in-out;
-  object-fit: fill;
+  object-fit: cover;
 
    text-align: center;
 }
