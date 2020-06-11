@@ -15,6 +15,7 @@ class ProItem extends React.Component {
       errors: []
     };
     this.deleteItem = this.deleteItem.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
     this.singleFileChangedHandler = this.singleFileChangedHandler.bind(this);
     this.singleFileUploadHandler = this.singleFileUploadHandler.bind(this);
   }
@@ -70,15 +71,16 @@ class ProItem extends React.Component {
     }
   };
 
-  handleEdit(event) {
+  handleEdit(event, listingId) {
     event.preventDefault();
-    let edit = {
-      photoUrl: this.state.photoUrl,
-      title: this.state.title,
-      description: this.state.description,
-      price: this.state.price,
-    };
-    this.props.updateListing(edit, this.props.history);
+    // let edit = {
+    //   photoUrl: this.state.photoUrl,
+    //   title: this.state.title,
+    //   description: this.state.description,
+    //   price: this.state.price,
+    // };
+    // this.props.updateListing(edit, this.props.history);
+    this.props.history.push(`/edit/${listingId}`);
   }
 
   deleteItem(e, listingId) {
@@ -110,7 +112,6 @@ class ProItem extends React.Component {
   }
 
   render() {
-    console.log(this.state.userListings);
     let listings = this.state.userListings;
     if (listings.length === 0) {
       return null;
@@ -144,7 +145,7 @@ class ProItem extends React.Component {
             <div>
               $<input
                 className="create-input"
-                type="number" maxlength="4"
+                type="number" maxLength="4"
                 onChange={this.update("price")}
                 value={this.state.price}
               ></input>
@@ -174,13 +175,22 @@ class ProItem extends React.Component {
                 <div className="about">{listing.description}</div>
                 <div className="price">$ {listing.price}</div>
               </div>
-
-              <button
-                className="delete-btn"
-                onClick={(e) => this.deleteItem(e, listing._id)}
-              >
-                Delete
+            
+            <div className="listing-btn-container">
+                <button
+                  className="delete-btn"
+                  onClick={(e) => this.deleteItem(e, listing._id)}
+                >
+                  Delete
               </button>
+                <button
+                  className="edit-item-btn"
+                  onClick={(e) => this.handleEdit(e, listing._id)}
+                >
+                  Edit
+              </button>
+            </div>
+              
             </Link>
           );
         })}

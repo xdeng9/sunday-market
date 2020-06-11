@@ -70,6 +70,28 @@
   box-shadow: 1px 1px black;
   outline: none;
   font-family: 'Taviraj', serif;
+  outline: none;
+}
+
+.edit-item-btn {
+  height: 30px;
+  background-color: rgb(89, 92, 249);
+  color: whitesmoke;
+  border: 1px black solid;
+  box-shadow: 1px 1px black;
+  outline: none;
+  font-family: 'Taviraj', serif;
+  outline: none;
+}
+
+.edit-item-btn:hover {
+  cursor: pointer;
+}
+
+.listing-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .delete-btn:hover {

@@ -30,7 +30,7 @@ class ListingShow extends React.Component {
                         <CommentContainer />
                     </div>
                     <div className="listing-show-right-box2">
-                        <iframe className="iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25232.70193328276!2d-122.44717164177793!3d37.76454079709958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1589503135730!5m2!1sen!2sus"
+                        <iframe className="iframe" title="location" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25232.70193328276!2d-122.44717164177793!3d37.76454079709958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1589503135730!5m2!1sen!2sus"
                         ></iframe>
                         <div className="listing-show-description2">
                             <h1 className="about-2"> Description</h1>
@@ -46,7 +46,7 @@ class ListingShow extends React.Component {
                             </div>
                             <div className="phone-box">
                                 <i className="fa fa-mobile-phone"></i>
-                                <a className="phoneNumber"> {this.state.user.phoneNumber}</a>
+                                <div className="phoneNumber"> {this.state.user.phoneNumber}</div>
                             </div>
                             <div className="zipcode-box">
                                 <i className="fa fa-map"></i>
@@ -55,7 +55,6 @@ class ListingShow extends React.Component {
                             <div className="email-box">
                                 <i className="fa fa-send-o"></i>
                                 <div className="email"> {this.state.user.email} </div>
-
                             </div>
                         </div>
                     </div>
