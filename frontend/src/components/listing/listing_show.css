@@ -103,11 +103,12 @@
 
 .listing-show-header{
   text-transform: uppercase;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: arial, sans-serif;
 }
 
 .listing-show-description2{
   margin-top: 45px;
+  font-family: arial, sans-serif;
 }
 
 .email-box{
